@@ -9,6 +9,12 @@ export default {
     client: 'sqlite3',
     connection: {
       filename: '../db/dev.sqlite3'
+    },
+    migrations: {
+      directory: '../db/migrations'
+    }, 
+    seeds: {
+      directory: '../db/seeds'
     }
   },
 
