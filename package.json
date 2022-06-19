@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app",
     "dev": "nodemon app",
-    "db-migrate": "knex migrate:up --knexfile config/knexfile.js --esm"
+    "db-migrate": "knex migrate:latest --knexfile config/knexfile.js --esm"
   },
   "private": true,
   "type": "module",
