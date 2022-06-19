@@ -1,6 +1,7 @@
 import { body } from "express-validator";
 import validationResult from "../validationResult.js";
 import stringLength from "string-length";
+import AuthQueries from '../../../db/queries/auth.queries.js';
 
 export default [
     [
@@ -52,7 +53,28 @@ export default [
     ], 
     validationResult, 
     [
-        
-    ]
+        body('email').custom(async value => {
+            
+            const exists = await AuthQueries.checkIfEmailExists(value);
 
+            if(exists){
+                throw new Error('Email address already exists.');
+            }
+
+            return true;
+
+        }), 
+        body('username').custom(async value => {
+
+            const exists = await AuthQueries.checkIfUsernameExists(value);
+
+            if(exists){
+                throw new Error('Username already exists.');
+            }
+
+            return true;
+
+        })
+    ], 
+    validationResult
 ];
