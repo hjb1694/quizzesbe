@@ -1,5 +1,5 @@
 import knex from '../index.js';
-import { DBFetchError } from '../db_errors.js';
+import { DBFetchError, DBInsertError } from '../db_errors.js';
 
 
 export default class AuthQueries {
@@ -33,6 +33,38 @@ export default class AuthQueries {
             throw new DBFetchError();
         }
 
+
+    }
+
+    static insertNewUser(email, username, hashedPassword){
+
+        try{
+
+            await knex('users').insert({
+                email, username, password: hashedPassword
+            });
+
+        }catch(e){
+
+            throw new DBInsertError();
+
+        }
+
+    }
+
+    static fetchUserIdByUsername(username){
+
+        try{
+
+            const result = await knex.from('users').select('id').where({username});
+
+            return result[0];
+
+        }catch(e){
+
+            throw new DBFetchError();
+
+        }
 
     }
 
