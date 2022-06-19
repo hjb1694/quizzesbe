@@ -36,7 +36,7 @@ export default class AuthQueries {
 
     }
 
-    static insertNewUser(email, username, hashedPassword){
+    static async insertNewUser(email, username, hashedPassword){
 
         try{
 
@@ -52,7 +52,7 @@ export default class AuthQueries {
 
     }
 
-    static fetchUserIdByUsername(username){
+    static async fetchUserIdByUsername(username){
 
         try{
 

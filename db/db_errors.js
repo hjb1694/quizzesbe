@@ -1,5 +1,3 @@
-import { removeAllListeners } from "nodemon";
-
 export class DBFetchError extends Error {
     constructor(){
         super('DB Fetch Error');

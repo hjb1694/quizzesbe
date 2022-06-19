@@ -3,7 +3,7 @@ import respondWithError from "../utils/respondWithError.js";
 import bcrypt from 'bcryptjs';
 import genToken from "../utils/genToken.js";
 
-export const register = (req,res) => {
+export const register = async (req,res) => {
 
     try{
 
