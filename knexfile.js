@@ -1,3 +1,5 @@
+import path from 'path';
+
 // Update with your config settings.
 
 /**
@@ -8,13 +10,13 @@ export default {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: '../db/dev.sqlite3'
+      filename: './db/db.sqlite3'
     },
     migrations: {
-      directory: '../db/migrations'
+      directory: './db/migrations'
     }, 
     seeds: {
-      directory: '../db/seeds'
+      directory: './db/seeds'
     }
   },
 
