@@ -13,6 +13,7 @@ export default class AuthQueries {
             return !!++result[0];
 
         }catch(e){
+            console.error(e);
             throw new DBFetchError();
         }
 
@@ -30,6 +31,7 @@ export default class AuthQueries {
             return !!++result[0];
 
         }catch(e){
+            console.error(e);
             throw new DBFetchError();
         }
 
@@ -46,6 +48,7 @@ export default class AuthQueries {
 
         }catch(e){
 
+            console.error(e);
             throw new DBInsertError();
 
         }
@@ -62,6 +65,7 @@ export default class AuthQueries {
 
         }catch(e){
 
+            console.error(e);
             throw new DBFetchError();
 
         }
