@@ -43,7 +43,10 @@ export default class AuthQueries {
         try{
 
             await knex('users').insert({
-                email, username, password: hashedPassword
+                email, 
+                username, 
+                password: hashedPassword, 
+                status: 'active'
             });
 
         }catch(e){
@@ -69,6 +72,23 @@ export default class AuthQueries {
             throw new DBFetchError();
 
         }
+
+    }
+
+
+    static async fetchLoginCredentialsByEmail(email){
+
+        try{
+
+            const result = await knex.from('users').where({email}).select('*').orderBy('id','desc').limit(1);
+
+            return result[0];
+
+        }catch(e){
+            console.error(e);
+            throw new DBFetchError();
+        }
+
 
     }
 

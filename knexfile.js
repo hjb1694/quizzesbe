@@ -1,5 +1,3 @@
-import path from 'path';
-
 // Update with your config settings.
 
 /**
@@ -17,7 +15,8 @@ export default {
     }, 
     seeds: {
       directory: './db/seeds'
-    }
+    }, 
+    useNullAsDefault: true
   },
 
   
